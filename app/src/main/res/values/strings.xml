@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MineSeeker</string>
+    <string name="background_image">Background Image</string>
+    <string name="cookie_finder">Cookie Finder</string>
 </resources>
