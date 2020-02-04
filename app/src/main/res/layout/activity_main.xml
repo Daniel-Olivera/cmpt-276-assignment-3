@@ -4,15 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00000000"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/loadingBackground"
+        android:layout_width="828dp"
+        android:layout_height="529dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loading"
+        android:contentDescription="@string/background_image" />
+
     <TextView
+        android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/cookie_finder"
+        android:textColor="#F5F5F5"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/Author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/daniel_olivera"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/txtTitle"
+        app:layout_constraintStart_toStartOf="@+id/txtTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+    <ImageView
+        android:id="@+id/cookie"
+        android:layout_width="199dp"
+        android:layout_height="122dp"
+        android:contentDescription="@string/cookie"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Author"
+        app:layout_constraintVertical_bias="0.19"
+        app:srcCompat="@drawable/cookie" />
+
+    <ImageButton
+        android:id="@+id/btnSkip"
+        android:layout_width="97dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_media_ff"
+        android:contentDescription="@string/welcome_skip" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
