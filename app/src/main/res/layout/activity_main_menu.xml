@@ -7,13 +7,49 @@
     android:visibility="visible"
     tools:context=".UI.MainMenu">
 
-    <TextView
-        android:id="@+id/midTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/menuBackground"
+        android:layout_width="937dp"
+        android:layout_height="415dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu"
+        android:contentDescription="@string/background_image_for_menu" />
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="197dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="124dp"
+        android:text="@string/play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnHelp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/help"
+        app:layout_constraintEnd_toEndOf="@+id/btnPlay"
+        app:layout_constraintStart_toStartOf="@+id/btnPlay"
+        app:layout_constraintTop_toBottomOf="@+id/btnPlay" />
+
+    <ImageButton
+        android:id="@+id/btnSettings"
+        android:layout_width="93dp"
+        android:layout_height="78dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_manage"
+        android:contentDescription= "@string/settings_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

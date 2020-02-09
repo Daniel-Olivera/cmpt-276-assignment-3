@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.mineseeker.R;
 
@@ -22,11 +23,21 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        String message = "It Worked!";
-        TextView txt = findViewById(R.id.midTxt);
-        txt.setText(message);
+        setupSettingsButton();
+
+
     }
 
+    private void setupSettingsButton() {
+        ImageButton skip = findViewById(R.id.btnSettings);
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  SettingsMenu.makeIntent(MainMenu.this);
+                startActivity(intent);
+            }
+        });
+    }
 
 
 }

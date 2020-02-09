@@ -5,4 +5,8 @@
     <string name="daniel_olivera">Daniel Olivera</string>
     <string name="cookie">cookie</string>
     <string name="welcome_skip">Welcome Skip</string>
+    <string name="play">Play</string>
+    <string name="help">Help</string>
+    <string name="settings_button">Settings button</string>
+    <string name="background_image_for_menu">background image for menu</string>
 </resources>
