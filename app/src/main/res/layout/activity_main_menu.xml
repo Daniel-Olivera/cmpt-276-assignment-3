@@ -11,11 +11,11 @@
         android:id="@+id/menuBackground"
         android:layout_width="937dp"
         android:layout_height="415dp"
+        android:contentDescription="@string/background_image_for_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/menu"
-        android:contentDescription="@string/background_image_for_menu" />
+        app:srcCompat="@drawable/background" />
 
     <Button
         android:id="@+id/btnPlay"

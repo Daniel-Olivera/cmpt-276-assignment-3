@@ -10,6 +10,8 @@ import com.example.mineseeker.R;
 
 public class SettingsMenu extends AppCompatActivity {
 
+
+
     public static Intent makeIntent(Context context){
         return new Intent(context, SettingsMenu.class);
     }
@@ -18,5 +20,7 @@ public class SettingsMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_menu);
+
+
     }
 }
