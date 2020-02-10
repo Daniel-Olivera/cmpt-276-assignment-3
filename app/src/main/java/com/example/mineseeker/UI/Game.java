@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
+import com.example.mineseeker.Model.Logic;
 import com.example.mineseeker.Model.Settings;
 import com.example.mineseeker.R;
 
@@ -26,6 +27,7 @@ public class Game extends AppCompatActivity {
     }
 
     Settings settings = Settings.getInstance();
+    Logic logic = new Logic();
 
     Button[][] buttons = new Button[settings.getRows()][settings.getCols()];
 
@@ -33,7 +35,7 @@ public class Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
+        logic.placeCookies();
         populateButtons();
 
     }
@@ -85,12 +87,14 @@ public class Game extends AppCompatActivity {
         lockButtons();
 
         //scales the image to the button size and replaces the button with a cookie
-        int newWidth = button.getWidth();
-        int newHeight = button.getHeight();
-        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cookie);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
-        Resources resource = getResources();
-        button.setBackground(new BitmapDrawable(resource,scaledBitmap));
+        if(logic.isCookie(row,col)){
+            int newWidth = button.getWidth();
+            int newHeight = button.getHeight();
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cookie);
+            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
+            Resources resource = getResources();
+            button.setBackground(new BitmapDrawable(resource,scaledBitmap));
+        }
     }
 
     private void lockButtons() {

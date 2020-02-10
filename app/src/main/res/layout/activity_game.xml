@@ -36,4 +36,24 @@
 
     </TableLayout>
 
+    <TextView
+        android:id="@+id/txtCookiesLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Found 0 of 0 cookies."
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/buttonTable"
+        app:layout_constraintStart_toStartOf="@+id/buttonTable"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtScans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# Scans used: "
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/buttonTable"
+        app:layout_constraintEnd_toEndOf="@+id/buttonTable"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
