@@ -11,7 +11,7 @@
         android:layout_width="975dp"
         android:layout_height="485dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background" />
@@ -24,7 +24,7 @@
         android:layout_marginEnd="148dp"
         android:layout_marginRight="148dp"
         android:text="@string/board_size"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/txtTitle"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/settings"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textColorHighlight="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/cookies"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/btn4x6"
         app:layout_constraintTop_toBottomOf="@+id/btn4x6" />
@@ -119,5 +119,4 @@
         android:text="@string/_20_cookies"
         app:layout_constraintStart_toEndOf="@+id/btn15"
         app:layout_constraintTop_toTopOf="@+id/btn15" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

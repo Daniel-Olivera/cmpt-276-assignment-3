@@ -43,8 +43,8 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void setupPlayButton() {
-        Button skip = findViewById(R.id.btnPlay);
-        skip.setOnClickListener(new View.OnClickListener() {
+        Button play = findViewById(R.id.btnPlay);
+        play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =  Game.makeIntent(MainMenu.this);

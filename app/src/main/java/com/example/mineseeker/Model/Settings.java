@@ -4,6 +4,7 @@ public class Settings {
 
     private int rows = 4;
     private int cols = 6;
+    private int cookies = 6;
 
     private static Settings instance;
 
@@ -28,5 +29,13 @@ public class Settings {
 
     public int getCols(){
         return cols;
+    }
+
+    public void setCookies(int x){
+        cookies = x;
+    }
+
+    public int getCookies(){
+        return cookies;
     }
 }
