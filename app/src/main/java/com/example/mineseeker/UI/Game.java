@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.mineseeker.Model.Logic;
 import com.example.mineseeker.Model.Settings;
@@ -28,6 +29,8 @@ public class Game extends AppCompatActivity {
 
     Settings settings = Settings.getInstance();
     Logic logic = new Logic();
+    int cookieCount = 0; // used to display the number of cookies left
+    int scanCount = 0;
 
     Button[][] buttons = new Button[settings.getRows()][settings.getCols()];
 
@@ -37,7 +40,28 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         logic.placeCookies();
         populateButtons();
+        updateCookieCounter();
+        updateScanCounter();
+    }
 
+    private void updateCookieCounter() {
+        String message;
+        message = "Found " + cookieCount + " of " + settings.getCookies() + " cookies.";
+        TextView txt = findViewById(R.id.txtCookiesLeft);
+        txt.setText(message);
+    }
+
+    private void updateScanCounter(){
+        String scanMessage;
+        scanMessage = "# Scans used: " + scanCount;
+        TextView txt = findViewById(R.id.txtScans);
+        txt.setText(scanMessage);
+    }
+
+    private void updateCookieScanNumber(int row, int col, Button button){
+        String message;
+        message = "" + logic.cookieNumber(row,col);
+        button.setText(message);
     }
 
     private void populateButtons(){
@@ -87,6 +111,7 @@ public class Game extends AppCompatActivity {
         lockButtons();
 
         //scales the image to the button size and replaces the button with a cookie
+        //if there is one
         if(logic.isCookie(row,col)){
             int newWidth = button.getWidth();
             int newHeight = button.getHeight();
@@ -94,6 +119,28 @@ public class Game extends AppCompatActivity {
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource,scaledBitmap));
+
+            //update the amount of cookies left in the counter
+            if(!logic.isRevealed(row,col)){
+            cookieCount++;
+            updateCookieCounter();
+            logic.setRevealed(row,col);
+            }
+            else if(!logic.isScanned(row,col)){
+                scanCount++;
+                updateScanCounter();
+                logic.setScanned(row,col);
+                updateCookieScanNumber(row,col,button);
+            }
+        }
+        //if not a cookie button
+        else{
+            if(!logic.isScanned(row,col)){
+                scanCount++;
+                updateScanCounter();
+                logic.setScanned(row,col);
+                updateCookieScanNumber(row,col,button);
+            }
         }
     }
 
@@ -108,7 +155,6 @@ public class Game extends AppCompatActivity {
                 int height = button.getHeight();
                 button.setMinHeight(height);
                 button.setMaxHeight(height);
-
             }
         }
     }
