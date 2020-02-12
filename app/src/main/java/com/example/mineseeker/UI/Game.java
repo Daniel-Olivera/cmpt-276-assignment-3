@@ -45,10 +45,10 @@ public class Game extends AppCompatActivity {
     }
 
     private void updateCookieCounter() {
-        String message;
-        message = "Found " + cookieCount + " of " + settings.getCookies() + " cookies.";
+        String numCookies;
+        numCookies = "Found " + cookieCount + " of " + settings.getCookies() + " cookies.";
         TextView txt = findViewById(R.id.txtCookiesLeft);
-        txt.setText(message);
+        txt.setText(numCookies);
     }
 
     private void updateScanCounter(){
@@ -58,10 +58,29 @@ public class Game extends AppCompatActivity {
         txt.setText(scanMessage);
     }
 
-    private void updateCookieScanNumber(int row, int col, Button button){
-        String message;
-        message = "" + logic.cookieNumber(row,col);
-        button.setText(message);
+    private void getScanNumber(int row, int col, Button button){
+        String scanNum;
+        scanNum = "" + logic.getCookieScan(row,col);
+        button.setText(scanNum);
+    }
+
+    private void updateScanNumber(int row, int col){
+        //change the column
+        for (int i = 0; i < settings.getRows(); i++) {
+            if(logic.isScanned(i,col)){
+                String num = "";
+                num += logic.countUpdater(i,col);
+                buttons[i][col].setText(num);
+            }
+        }
+        //change the row
+        for (int i = 0; i < settings.getCols(); i++) {
+            if(logic.isScanned(row,i)) {
+                String num = "";
+                num += logic.countUpdater(row, i);
+                buttons[row][i].setText(num);
+            }
+        }
     }
 
     private void populateButtons(){
@@ -120,26 +139,28 @@ public class Game extends AppCompatActivity {
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource,scaledBitmap));
 
-            //update the amount of cookies left in the counter
+
+            //update the amount of cookies left in the counter [top left of game screen]
             if(!logic.isRevealed(row,col)){
             cookieCount++;
-            updateCookieCounter();
             logic.setRevealed(row,col);
+            updateCookieCounter();
+            updateScanNumber(row,col);
             }
             else if(!logic.isScanned(row,col)){
                 scanCount++;
-                updateScanCounter();
                 logic.setScanned(row,col);
-                updateCookieScanNumber(row,col,button);
+                updateScanCounter();
+                getScanNumber(row,col,button);
             }
         }
-        //if not a cookie button
+        //if not a cookie button then scan it
         else{
             if(!logic.isScanned(row,col)){
                 scanCount++;
-                updateScanCounter();
                 logic.setScanned(row,col);
-                updateCookieScanNumber(row,col,button);
+                updateScanCounter();
+                getScanNumber(row,col,button);
             }
         }
     }

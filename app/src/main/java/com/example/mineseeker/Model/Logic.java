@@ -14,6 +14,7 @@ public class Logic {
     private boolean[][] cookies = new boolean[rows][cols];
     private boolean[][] cookiesFound = new boolean[rows][cols];
     private boolean[][] scanned = new boolean[rows][cols];
+    private int[][] scanNumber = new int[rows][cols];
 
     //used to randomly place a set number of cookies in the grid
     public void placeCookies(){
@@ -32,25 +33,26 @@ public class Logic {
         }
     }
 
-    //returns the number of cookies in the column and row
-    public int cookieNumber(int row, int col){
+    //stores the number of cookies in the column and row into that position
+    public int getCookieScan(int row, int col){
         int count = 0;
 
         //check the column
-        for(int i = 0; i < row; i++){
-            if(isCookie(i,col)){
+        for (int i = 0; i < rows; i++) {
+            if (isCookie(i, col) && !isRevealed(i,col)) {
                 count++;
             }
         }
-
         //check the row
-        for(int i = 0; i < col; i++){
-            if(isCookie(row,i)){
+        for (int i = 0; i < cols; i++) {
+            if (isCookie(row, i) && !isRevealed(row,i)) {
                 count++;
             }
         }
 
+        scanNumber[row][col] = count;
         return count;
+
     }
 
 
@@ -76,6 +78,12 @@ public class Logic {
         return scanned[row][col];
     }
 
+    //updates the number on the buttons when a cookie is revealed
+    public int countUpdater(int row, int col) {
 
-
+        if(scanNumber[row][col] > 0){
+            scanNumber[row][col]--;
+        }
+        return scanNumber[row][col];
+    }
 }
