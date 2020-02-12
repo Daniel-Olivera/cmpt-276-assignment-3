@@ -55,9 +55,6 @@ public class Logic {
 
     }
 
-
-
-
     public boolean isCookie(int row, int col){
         return cookies[row][col];
     }

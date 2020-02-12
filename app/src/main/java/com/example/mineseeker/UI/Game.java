@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -100,10 +101,10 @@ public class Game extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
-                //keep the buttons from being translucent
-                button.setBackgroundResource(android.R.drawable.btn_default);
                 //keep text from clipping on smaller buttons
                 button.setPadding(0,0,0,0);
+                //change text size so it's easier to see
+                button.setTextSize(24);
 
                 final int COL_NUM = col;
                 final int ROW_NUM = row;
@@ -147,9 +148,12 @@ public class Game extends AppCompatActivity {
             updateCookieCounter();
             updateScanNumber(row,col);
             }
+            //if the cookie is revealed and the player scans the cookie itself
             else if(!logic.isScanned(row,col)){
                 scanCount++;
                 logic.setScanned(row,col);
+                //Set the text on a cookie to white for readability
+                button.setTextColor(Color.WHITE);
                 updateScanCounter();
                 getScanNumber(row,col,button);
             }
