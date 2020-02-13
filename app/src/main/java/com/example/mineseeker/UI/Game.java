@@ -2,6 +2,7 @@ package com.example.mineseeker.UI;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -50,6 +51,12 @@ public class Game extends AppCompatActivity {
         numCookies = "Found " + cookieCount + " of " + settings.getCookies() + " cookies.";
         TextView txt = findViewById(R.id.txtCookiesLeft);
         txt.setText(numCookies);
+
+        if(cookieCount == settings.getCookies()){
+            FragmentManager manager = getSupportFragmentManager();
+            GameWinFragment dialog = new GameWinFragment();
+            dialog.show(manager, "Win Dialog");
+        }
     }
 
     private void updateScanCounter(){
@@ -123,6 +130,8 @@ public class Game extends AppCompatActivity {
         }
     }
 
+    //Define what happens when a button is clicked
+    //such as revealing a button or scanning it, etc.
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void gridButtonClicked(int col, int row) {
         Button button = buttons[row][col];
@@ -140,8 +149,8 @@ public class Game extends AppCompatActivity {
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource,scaledBitmap));
 
-
             //update the amount of cookies left in the counter [top left of game screen]
+            //when a cookie is found
             if(!logic.isRevealed(row,col)){
             cookieCount++;
             logic.setRevealed(row,col);
