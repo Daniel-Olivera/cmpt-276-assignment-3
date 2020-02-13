@@ -23,6 +23,8 @@ import com.example.mineseeker.Model.Logic;
 import com.example.mineseeker.Model.Settings;
 import com.example.mineseeker.R;
 
+//Is in charge of what is displayed on the game screen.
+//Makes use of the Logic and Settings classes to decide what is displayed
 public class Game extends AppCompatActivity {
 
     public static Intent makeIntent(Context context){
@@ -32,7 +34,7 @@ public class Game extends AppCompatActivity {
     Settings settings = Settings.getInstance();
     Logic logic = new Logic();
     int cookieCount = 0; // used to display the number of cookies left
-    int scanCount = 0;
+    int scanCount = 0; //used to display how many scans have been used
 
     Button[][] buttons = new Button[settings.getRows()][settings.getCols()];
 
@@ -40,9 +42,14 @@ public class Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        //Places the cookies randomly on the board
         logic.placeCookies();
+        //Populates the grid with buttons
         populateButtons();
+        //initializes the counter of how many cookies are left
         updateCookieCounter();
+        //initializes the amount of scans used
         updateScanCounter();
     }
 
@@ -52,6 +59,8 @@ public class Game extends AppCompatActivity {
         TextView txt = findViewById(R.id.txtCookiesLeft);
         txt.setText(numCookies);
 
+        //if you find all the cookies...
+        //open the "game won" Dialog box
         if(cookieCount == settings.getCookies()){
             FragmentManager manager = getSupportFragmentManager();
             GameWinFragment dialog = new GameWinFragment();
@@ -72,12 +81,14 @@ public class Game extends AppCompatActivity {
         button.setText(scanNum);
     }
 
+    //updates the scanned numbers when a cookie is revealed
     private void updateScanNumber(int row, int col){
         //change the column
         for (int i = 0; i < settings.getRows(); i++) {
+            //only update scanned buttons/cookies
             if(logic.isScanned(i,col)){
                 String num = "";
-                num += logic.countUpdater(i,col);
+                num += logic.scanUpdater(i,col);
                 buttons[i][col].setText(num);
             }
         }
@@ -85,7 +96,7 @@ public class Game extends AppCompatActivity {
         for (int i = 0; i < settings.getCols(); i++) {
             if(logic.isScanned(row,i)) {
                 String num = "";
-                num += logic.countUpdater(row, i);
+                num += logic.scanUpdater(row, i);
                 buttons[row][i].setText(num);
             }
         }
@@ -141,7 +152,7 @@ public class Game extends AppCompatActivity {
 
         //scales the image to the button size and replaces the button with a cookie
         //if there is one
-        if(logic.isCookie(row,col)){
+        if(logic.isCookie(row,col)){ //this if statement checks if what you clicked on is a cookie
             int newWidth = button.getWidth();
             int newHeight = button.getHeight();
             Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cookie);
@@ -151,6 +162,7 @@ public class Game extends AppCompatActivity {
 
             //update the amount of cookies left in the counter [top left of game screen]
             //when a cookie is found
+            //i.e. when what you clicked on was a cookie but hasn't been revealed
             if(!logic.isRevealed(row,col)){
             cookieCount++;
             logic.setRevealed(row,col);
@@ -158,9 +170,11 @@ public class Game extends AppCompatActivity {
             updateScanNumber(row,col);
             }
             //if the cookie is revealed and the player scans the cookie itself
+            //i.e. (if it wasn't scanned)
             else if(!logic.isScanned(row,col)){
                 scanCount++;
                 logic.setScanned(row,col);
+
                 //Set the text on a cookie to white for readability
                 button.setTextColor(Color.WHITE);
                 updateScanCounter();

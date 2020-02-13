@@ -24,22 +24,12 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-
+        //play button goes to the Game Activity
         setupPlayButton();
+        //Settings button goes to the Settings Activity
         setupSettingsButton();
-
-
-    }
-
-    private void setupSettingsButton() {
-        ImageButton skip = findViewById(R.id.btnSettings);
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =  SettingsMenu.makeIntent(MainMenu.this);
-                startActivity(intent);
-            }
-        });
+        //Help button goes to the Help Activity
+        setupHelpButton();
     }
 
     private void setupPlayButton() {
@@ -53,5 +43,25 @@ public class MainMenu extends AppCompatActivity {
         });
     }
 
+    private void setupSettingsButton() {
+        ImageButton skip = findViewById(R.id.btnSettings);
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  SettingsMenu.makeIntent(MainMenu.this);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setupHelpButton() {
+        Button help = findViewById(R.id.btnHelp);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
 
 }

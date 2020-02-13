@@ -28,7 +28,9 @@ public class SettingsMenu extends AppCompatActivity {
 
         Settings settings = Settings.getInstance();
 
+        //setup the buttons to change the grid size
         setupGridButtons(settings);
+        //setup the buttons to change the amount of cookies
         setupCookieButtons(settings);
     }
 

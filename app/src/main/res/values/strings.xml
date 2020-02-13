@@ -20,4 +20,7 @@
     <string name="_15_cookies">15 Cookies</string>
     <string name="_20_cookies">20 Cookies</string>
     <string name="Game_Title">Cookie Finder!</string>
+    <string name="left_cookie_image">Left Cookie Image</string>
+    <string name="right_cookie_image">Right Cookie Image</string>
+    <string name="you_win">You Win!</string>
 </resources>

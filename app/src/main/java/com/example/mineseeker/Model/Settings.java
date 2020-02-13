@@ -8,6 +8,7 @@ public class Settings {
 
     private static Settings instance;
 
+    //singleton used for sharing the settings between activities
     public static Settings getInstance(){
         if(instance == null){
             instance = new Settings();
