@@ -59,7 +59,8 @@ public class MainMenu extends AppCompatActivity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent =  HelpMenu.makeIntent(MainMenu.this);
+                startActivity(intent);
             }
         });
     }
