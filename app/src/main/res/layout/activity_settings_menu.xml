@@ -6,4 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".UI.SettingsMenu">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="975dp"
+        android:layout_height="485dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background" />
+
+    <TextView
+        android:id="@+id/txtboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:text="@string/board_size"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/txtTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/settings"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtMines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/cookies"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/btn4x6"
+        app:layout_constraintTop_toBottomOf="@+id/btn4x6" />
+
+    <Button
+        android:id="@+id/btn4x6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_4x6_grid"
+        app:layout_constraintStart_toStartOf="@+id/txtboard"
+        app:layout_constraintTop_toBottomOf="@+id/txtboard" />
+
+    <Button
+        android:id="@+id/btn5x10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/_5x10_grid"
+        app:layout_constraintStart_toEndOf="@+id/btn4x6"
+        app:layout_constraintTop_toTopOf="@+id/btn4x6" />
+
+    <Button
+        android:id="@+id/btn6x15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/_6x15_grid"
+        app:layout_constraintStart_toEndOf="@+id/btn5x10"
+        app:layout_constraintTop_toTopOf="@+id/btn5x10" />
+
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_6_cookies"
+        app:layout_constraintStart_toStartOf="@+id/txtMines"
+        app:layout_constraintTop_toBottomOf="@+id/txtMines" />
+
+    <Button
+        android:id="@+id/btn10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/_10_cookies"
+        app:layout_constraintStart_toEndOf="@+id/btn6"
+        app:layout_constraintTop_toTopOf="@+id/btn6" />
+
+    <Button
+        android:id="@+id/btn15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/_15_cookies"
+        app:layout_constraintStart_toEndOf="@+id/btn10"
+        app:layout_constraintTop_toTopOf="@+id/btn10" />
+
+    <Button
+        android:id="@+id/btn20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/_20_cookies"
+        app:layout_constraintStart_toEndOf="@+id/btn15"
+        app:layout_constraintTop_toTopOf="@+id/btn15" />
 </androidx.constraintlayout.widget.ConstraintLayout>

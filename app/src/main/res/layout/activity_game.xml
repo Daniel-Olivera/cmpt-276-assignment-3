@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".UI.Game">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="794dp"
+        android:layout_height="433dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/background" />
+
+    <TableLayout
+        android:id="@+id/buttonTable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/txtCookiesLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Found 0 of 0 cookies."
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/buttonTable"
+        app:layout_constraintStart_toStartOf="@+id/buttonTable"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtScans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# Scans used: "
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/buttonTable"
+        app:layout_constraintEnd_toEndOf="@+id/buttonTable"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

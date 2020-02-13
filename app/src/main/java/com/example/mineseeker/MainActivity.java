@@ -24,10 +24,6 @@ Creates the Welcome screen as well as heading to the main menu
  */
 public class MainActivity extends AppCompatActivity {
 
-    public static Intent makeIntent(Context context){
-        return new Intent(context, MainActivity.class);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,20 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
         animateCookie();
         splashScreenTimer();
-        setupSkipButton();
-
     }
 
-    private void setupSkipButton() {
-        ImageButton skip = findViewById(R.id.btnSkip);
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                   Intent intent =  MainMenu.makeIntent(MainActivity.this);
-                    startActivity(intent);
-            }
-        });
-    }
+
 
     private void animateCookie(){
         ImageView cookie = findViewById(R.id.cookie);
@@ -63,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void splashScreenTimer(){
         //taken from developer references https://developer.android.com/reference/android/os/CountDownTimer.html
-        CountDownTimer start = new CountDownTimer(8000, 1000) {
+        final CountDownTimer timer = new CountDownTimer(8000, 1000) {
+
+
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -73,7 +60,24 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = MainMenu.makeIntent(MainActivity.this);
                 startActivity(intent);
             }
-        }.start();
+
+
+        };
+
+        //setup the button so skip the welcome screen
+        ImageButton skip = findViewById(R.id.btnSkip);
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.cancel();
+                Intent intent =  MainMenu.makeIntent(MainActivity.this);
+                startActivity(intent);
+            }
+        });
+
+        timer.start();
+
+
 
     }
 }
