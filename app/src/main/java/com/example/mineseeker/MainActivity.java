@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         splashScreenTimer();
     }
 
-
-
     private void animateCookie(){
         ImageView cookie = findViewById(R.id.cookie);
 
@@ -60,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
         //taken from developer references https://developer.android.com/reference/android/os/CountDownTimer.html
         final CountDownTimer timer = new CountDownTimer(8000, 1000) {
 
-
-
             @Override
             public void onTick(long millisUntilFinished) {
             }
@@ -70,24 +66,24 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = MainMenu.makeIntent(MainActivity.this);
                 startActivity(intent);
             }
-
-
         };
+
+        timer.start();
 
         //setup the button so skip the welcome screen
         ImageButton skip = findViewById(R.id.btnSkip);
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                timer.cancel();
-                Intent intent =  MainMenu.makeIntent(MainActivity.this);
-                startActivity(intent);
+                skipSplashScreen(timer);
             }
         });
 
-        timer.start();
+    }
 
-
-
+    private void skipSplashScreen(CountDownTimer timer) {
+        timer.cancel();
+        Intent intent =  MainMenu.makeIntent(MainActivity.this);
+        startActivity(intent);
     }
 }

@@ -25,8 +25,14 @@
     <string name="you_win">You Win!</string>
     <string name="about_the_author">About the Author:</string>
     <string name="My_Info">Hi, I\'m Daniel Olivera. I\'m a student at SFU taking the Software Systems Program. This game is my third assignment in CMPT 276 with Dr. Brian Fraser. Hope you like it!</string>
-    <string name="cmpt276_course_page">CMPT276 Course Page</string>
-    <string name="linktocourse">
-        <a href="https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home">CMPT276 Home Page</a>
-    </string>
+
+    <string name="Game_Help">Click on a button in hopes of finding a delicious cookie! It\'s OK if you don\'t find one though! If you click a button that has no cookie, it\'ll tell you how many
+        cookies there are left in that row and column. Use that information in any way you can to try and find all the cookies with the least amount of checks!</string>
+
+
+    <string name="useful_links">Useful links:</string>
+
+    <string name="link_to_course"><a href="https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home">CMPT276 Home Page</a></string>
+    <string name="link_cookie_art"><a href="http://clipart-library.com/clipart/284327.htm">Cookie Art</a></string>
+    <string name="link_background_art"><a href="https://opencoursehub.cs.sfu.ca/bfraser/solutions/276/images/ImageGallery/content/466031307_large.html">Background Art</a></string>
 </resources>

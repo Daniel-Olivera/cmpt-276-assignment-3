@@ -46,9 +46,63 @@
         android:id="@+id/txtCourseLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/linktocourse"
+        android:text="@string/link_to_course"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/txtAbout"
         app:layout_constraintTop_toBottomOf="@+id/txtAbout" />
+
+    <TextView
+        android:id="@+id/txtHow2Play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
+        android:text="How to Play:"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtAuthor" />
+
+    <TextView
+        android:id="@+id/txtGameHelp"
+        android:layout_width="296dp"
+        android:layout_height="213dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/Game_Help"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/txtHow2Play"
+        app:layout_constraintTop_toBottomOf="@+id/txtHow2Play" />
+
+    <TextView
+        android:id="@+id/txtLinks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/useful_links"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtCourseLink"
+        app:layout_constraintTop_toBottomOf="@+id/txtCourseLink"
+        app:layout_constraintVertical_bias="0.43" />
+
+    <TextView
+        android:id="@+id/txtClipArt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/link_cookie_art"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/txtLinks"
+        app:layout_constraintTop_toBottomOf="@+id/txtLinks" />
+
+    <TextView
+        android:id="@+id/txtBackgroundArt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/link_background_art"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/txtClipArt"
+        app:layout_constraintTop_toBottomOf="@+id/txtClipArt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
