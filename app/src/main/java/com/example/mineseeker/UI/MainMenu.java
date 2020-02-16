@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.mineseeker.MainActivity;
 import com.example.mineseeker.R;
 
 
@@ -63,6 +64,18 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    //Exit the program from main menu when the back button is pressed
+    //code pulled from https://stackoverflow.com/questions/14001963/finish-all-activities-at-a-time/32203016
+    @Override
+    public void onBackPressed(){
+        Intent intent = MainActivity.makeIntent(this);
+        //closes all other activities
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //sends the value 'true' to the first activity
+        intent.putExtra("EXIT", true);
+        startActivity(intent);
     }
 
 }

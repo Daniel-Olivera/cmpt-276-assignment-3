@@ -206,4 +206,10 @@ public class Game extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onBackPressed(){
+       Intent intent = MainMenu.makeIntent(this);
+       startActivity(intent);
+    }
 }

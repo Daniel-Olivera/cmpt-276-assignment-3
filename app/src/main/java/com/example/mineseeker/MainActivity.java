@@ -24,9 +24,19 @@ Creates the Welcome screen as well as heading to the main menu
  */
 public class MainActivity extends AppCompatActivity {
 
+    public static Intent makeIntent(Context context){
+        return new Intent(context, MainActivity.class);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //exits the app if set to true by MainMenu.java
+        if(getIntent().getBooleanExtra("EXIT",false)){
+            finish();
+        }
+
         setContentView(R.layout.activity_main);
 
         animateCookie();
