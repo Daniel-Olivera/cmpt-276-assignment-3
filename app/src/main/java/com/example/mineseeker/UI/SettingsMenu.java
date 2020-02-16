@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -93,18 +94,26 @@ public class SettingsMenu extends AppCompatActivity {
             }
         });
 
-
         btn20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 settings.setCookies(20);
             }
         });
+    }
 
+    private void saveNumCookies(int numCookies){
+        SharedPreferences prefs = this.getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("Num cookies", numCookies);
+        editor.apply();
+    }
 
-
-
+    public static int getNumCookies(Context context){
+        SharedPreferences prefs = context.getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        return prefs.getInt("Num cookies", 0);
     }
 }
+
 
 
