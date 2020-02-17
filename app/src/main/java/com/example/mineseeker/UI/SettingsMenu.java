@@ -77,6 +77,7 @@ public class SettingsMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 settings.setCookies(6);
+                saveNumCookies(6);
             }
         });
 
@@ -84,6 +85,7 @@ public class SettingsMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 settings.setCookies(10);
+                saveNumCookies(10);
             }
         });
 
@@ -91,6 +93,7 @@ public class SettingsMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 settings.setCookies(15);
+                saveNumCookies(15);
             }
         });
 
@@ -98,11 +101,12 @@ public class SettingsMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 settings.setCookies(20);
+                saveNumCookies(20);
             }
         });
     }
 
-    private void saveNumCookies(int numCookies){
+    public void saveNumCookies(int numCookies){
         SharedPreferences prefs = this.getSharedPreferences("AppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("Num cookies", numCookies);
@@ -111,7 +115,7 @@ public class SettingsMenu extends AppCompatActivity {
 
     public static int getNumCookies(Context context){
         SharedPreferences prefs = context.getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        return prefs.getInt("Num cookies", 0);
+        return prefs.getInt("Num cookies", 6);
     }
 }
 

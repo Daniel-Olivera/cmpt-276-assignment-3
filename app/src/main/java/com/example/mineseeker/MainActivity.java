@@ -15,7 +15,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mineseeker.Model.Settings;
 import com.example.mineseeker.UI.MainMenu;
+import com.example.mineseeker.UI.SettingsMenu;
 
 
 /*
@@ -41,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
         animateCookie();
         splashScreenTimer();
+
+        Settings settings = Settings.getInstance();
+
+        int x = SettingsMenu.getNumCookies(this);
+        settings.setCookies(x);
+
     }
 
     private void animateCookie(){

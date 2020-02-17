@@ -54,6 +54,10 @@ public class Game extends AppCompatActivity {
     }
 
     private void updateCookieCounter() {
+
+        int cookieNum = SettingsMenu.getNumCookies(this);
+        settings.setCookies(cookieNum);
+
         String numCookies;
         numCookies = "Found " + cookieCount + " of " + settings.getCookies() + " cookies.";
         TextView txt = findViewById(R.id.txtCookiesLeft);
