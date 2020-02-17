@@ -72,10 +72,10 @@ public class Game extends AppCompatActivity {
     }
 
     private void updateScanCounter(){
-        String scanMessage;
-        scanMessage = "# Scans used: " + scanCount;
+        String scanCounter;
+        scanCounter = "# Scans used: " + scanCount;
         TextView txt = findViewById(R.id.txtScans);
-        txt.setText(scanMessage);
+        txt.setText(scanCounter);
     }
 
     private void getScanNumber(int row, int col, Button button){

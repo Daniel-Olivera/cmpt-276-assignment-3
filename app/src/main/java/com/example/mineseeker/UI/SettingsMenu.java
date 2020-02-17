@@ -44,8 +44,6 @@ public class SettingsMenu extends AppCompatActivity {
         btn4x6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //settings.setRows(4);
-                //settings.setCols(6);
                 saveNumRows(4);
                 saveNumCols(6);
             }
@@ -54,8 +52,6 @@ public class SettingsMenu extends AppCompatActivity {
         btn5x10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                settings.setRows(5);
-                settings.setCols(10);
                 saveNumRows(5);
                 saveNumCols(10);
             }
@@ -64,8 +60,6 @@ public class SettingsMenu extends AppCompatActivity {
         btn6x15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                settings.setRows(6);
-                settings.setCols(15);
                 saveNumRows(6);
                 saveNumCols(15);
             }

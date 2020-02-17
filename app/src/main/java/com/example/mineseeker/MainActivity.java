@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        //initializes the settings with the values saved from last time
+        //initializes the settings on startup with the values saved from last time
         getSavedValues();
 
         animateCookie();
@@ -73,16 +73,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = MainMenu.makeIntent(MainActivity.this);
                 startActivity(intent);
             }
-        };
+        }.start();
 
-        timer.start();
-
-        //setup the button so skip the welcome screen
+        //setup the button to skip the welcome screen
         ImageButton skip = findViewById(R.id.btnSkip);
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                skipSplashScreen(timer);
+               skipSplashScreen(timer);
             }
         });
 
