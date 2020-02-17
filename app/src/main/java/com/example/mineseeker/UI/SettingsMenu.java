@@ -44,8 +44,10 @@ public class SettingsMenu extends AppCompatActivity {
         btn4x6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                settings.setRows(4);
-                settings.setCols(6);
+                //settings.setRows(4);
+                //settings.setCols(6);
+                saveNumRows(4);
+                saveNumCols(6);
             }
         });
 
@@ -54,6 +56,8 @@ public class SettingsMenu extends AppCompatActivity {
             public void onClick(View v) {
                 settings.setRows(5);
                 settings.setCols(10);
+                saveNumRows(5);
+                saveNumCols(10);
             }
         });
 
@@ -62,6 +66,8 @@ public class SettingsMenu extends AppCompatActivity {
             public void onClick(View v) {
                 settings.setRows(6);
                 settings.setCols(15);
+                saveNumRows(6);
+                saveNumCols(15);
             }
         });
 
@@ -77,6 +83,7 @@ public class SettingsMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 settings.setCookies(6);
+                saveNumCookies(6);
             }
         });
 
@@ -84,6 +91,7 @@ public class SettingsMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 settings.setCookies(10);
+                saveNumCookies(10);
             }
         });
 
@@ -91,6 +99,7 @@ public class SettingsMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 settings.setCookies(15);
+                saveNumCookies(15);
             }
         });
 
@@ -98,21 +107,57 @@ public class SettingsMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 settings.setCookies(20);
+                saveNumCookies(20);
             }
         });
     }
 
-    private void saveNumCookies(int numCookies){
-        SharedPreferences prefs = this.getSharedPreferences("AppPrefs", MODE_PRIVATE);
+    //Allows user to save the number of cookies between app runs
+    public void saveNumCookies(int numCookies){
+        SharedPreferences prefs = this.getSharedPreferences("cookiePrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("Num cookies", numCookies);
         editor.apply();
     }
 
+    //Allows application to get the saved number whenever it needs it
     public static int getNumCookies(Context context){
-        SharedPreferences prefs = context.getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        return prefs.getInt("Num cookies", 0);
+        SharedPreferences prefs = context.getSharedPreferences("cookiePrefs", MODE_PRIVATE);
+        return prefs.getInt("Num cookies", 6);
     }
+
+    //Allows user to save the number of Rows between app runs
+    public void saveNumRows(int numRows){
+        SharedPreferences prefs = this.getSharedPreferences("rowPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("Num Rows", numRows);
+        editor.apply();
+    }
+
+    //Allows application to get the saved number whenever it needs it
+    public static int getNumRows(Context context){
+        SharedPreferences prefs = context.getSharedPreferences("rowPrefs", MODE_PRIVATE);
+        return prefs.getInt("Num Rows", 4);
+    }
+
+    //Allows user to save the number of Columns between app runs
+    public void saveNumCols(int numCols){
+        SharedPreferences prefs = this.getSharedPreferences("colPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("Num Cols", numCols);
+        editor.apply();
+    }
+
+    //Allows application to get the saved number whenever it needs it
+    public static int getNumCols(Context context){
+        SharedPreferences prefs = context.getSharedPreferences("colPrefs", MODE_PRIVATE);
+        return prefs.getInt("Num Cols", 6);
+    }
+
+
+
+
+
 }
 
 

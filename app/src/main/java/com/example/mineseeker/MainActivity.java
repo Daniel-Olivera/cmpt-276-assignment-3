@@ -15,7 +15,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mineseeker.Model.Settings;
 import com.example.mineseeker.UI.MainMenu;
+import com.example.mineseeker.UI.SettingsMenu;
 
 
 /*
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         return new Intent(context, MainActivity.class);
     }
 
+    Settings settings = Settings.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
+
+        //initializes the settings with the values saved from last time
+        getSavedValues();
 
         animateCookie();
         splashScreenTimer();
@@ -85,5 +92,15 @@ public class MainActivity extends AppCompatActivity {
         timer.cancel();
         Intent intent =  MainMenu.makeIntent(MainActivity.this);
         startActivity(intent);
+    }
+
+    private void getSavedValues(){
+        int rows = SettingsMenu.getNumRows(this);
+        int cols = SettingsMenu.getNumCols(this);
+        int cookieNum = SettingsMenu.getNumCookies(this);
+
+        settings.setCookies(cookieNum);
+        settings.setRows(rows);
+        settings.setCols(cols);
     }
 }

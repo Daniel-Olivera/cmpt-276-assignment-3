@@ -1,5 +1,11 @@
 package com.example.mineseeker.Model;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.example.mineseeker.UI.Game;
+import com.example.mineseeker.UI.SettingsMenu;
+
 public class Settings {
 
     private int rows = 4;

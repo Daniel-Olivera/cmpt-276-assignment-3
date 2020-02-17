@@ -43,6 +43,9 @@ public class Game extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        //pulls the settings from the saved preferences
+        getSavedValues();
+
         //Places the cookies randomly on the board
         logic.placeCookies();
         //Populates the grid with buttons
@@ -211,5 +214,15 @@ public class Game extends AppCompatActivity {
     public void onBackPressed(){
        Intent intent = MainMenu.makeIntent(this);
        startActivity(intent);
+    }
+
+    private void getSavedValues(){
+        int rows = SettingsMenu.getNumRows(this);
+        int cols = SettingsMenu.getNumCols(this);
+        int cookieNum = SettingsMenu.getNumCookies(this);
+
+        settings.setCookies(cookieNum);
+        settings.setRows(rows);
+        settings.setCols(cols);
     }
 }
