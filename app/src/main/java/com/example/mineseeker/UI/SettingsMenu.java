@@ -46,6 +46,8 @@ public class SettingsMenu extends AppCompatActivity {
             public void onClick(View v) {
                 saveNumRows(4);
                 saveNumCols(6);
+                settings.setRows(4);
+                settings.setCols(6);
             }
         });
 
@@ -54,6 +56,8 @@ public class SettingsMenu extends AppCompatActivity {
             public void onClick(View v) {
                 saveNumRows(5);
                 saveNumCols(10);
+                settings.setRows(5);
+                settings.setCols(10);
             }
         });
 
@@ -62,6 +66,8 @@ public class SettingsMenu extends AppCompatActivity {
             public void onClick(View v) {
                 saveNumRows(6);
                 saveNumCols(15);
+                settings.setRows(6);
+                settings.setCols(15);
             }
         });
 
