@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.R.drawable;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -126,6 +127,8 @@ public class Game extends AppCompatActivity {
                 button.setPadding(0,0,0,0);
                 //change text size so it's easier to see
                 button.setTextSize(24);
+                //makes sure the buttons aren't transparent
+                button.setBackgroundResource(drawable.btn_default);
 
                 final int COL_NUM = col;
                 final int ROW_NUM = row;
